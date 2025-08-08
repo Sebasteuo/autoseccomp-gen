@@ -1,16 +1,19 @@
 import re
-from typing import Set, Iterable
+from typing import Iterable, Set
 
-_SYSCALL_RE = re.compile(r'^\s*[0-9]+(?:\s+[0-9.]+)?\s+([a-zA-Z0-9_]+)\(')
+_CALL_RE = re.compile(r'^\s*\d+(?:\s+\d+\.\d+)?\s+([a-zA-Z0-9_]+)\(')
+
 
 def iter_syscalls(lines: Iterable[str]) -> Iterable[str]:
-    """Yield syscall names found at start of each strace line."""
+    """Yield every syscall found at the beginning of strace lines."""
     for line in lines:
-        m = _SYSCALL_RE.match(line)
+        m = _CALL_RE.match(line)
         if m:
             yield m.group(1)
 
+
 def parse_strace(path: str) -> Set[str]:
-    """Return a set of unique syscalls detected in a strace -f log."""
-    with open(path, 'r', errors='ignore') as fh:
+    """Return a *set* of unique syscalls found in a strace ‑f log."""
+    with open(path, errors="ignore") as fh:
         return set(iter_syscalls(fh))
+
