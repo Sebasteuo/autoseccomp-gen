@@ -22,7 +22,7 @@ pip install -e .
 
 # one-shot trace → profile → validate
 autoseccomp-gen trace-run "/bin/ls /" -o ls.json
-docker run --rm --security-opt seccomp="1000 4 24 27 30 46 101 125 1000pwd)/ls.json" busybox true
+docker run --rm --security-opt seccomp="$(pwd)/ls.json" busybox true
 ```
 
 
