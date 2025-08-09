@@ -11,3 +11,7 @@ build/
 # Local helper files
 README.bak.*.md
 README.gallery.md
+
+__pycache__/
+*.pyc
+*.pyo
