@@ -3,6 +3,11 @@
 Generate a ready‑to‑ship seccomp profile from **one single run** of your program or container.
 
 <p align="center">
+  <img width="1000" src="docs/screenshots/Project.png" alt="AutoSeccomp‑Gen — Project overview">
+</p>
+
+
+<p align="center">
   <img width="500" src="docs/demo.gif" alt="asciinema demo">
 </p>
 
