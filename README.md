@@ -15,9 +15,21 @@ Generate a ready‑to‑ship seccomp profile from **one single run** of your pro
 ## Quick start
 
 ```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -U pip
+pip install -e .
+
+# one-shot trace → profile → validate
+autoseccomp-gen trace-run "/bin/ls /" -o ls.json
+docker run --rm --security-opt seccomp=ls.json busybox true
+```
+
+
+```bash
 pip install -r requirements.txt
 # list the network‑free syscalls of /bin/ls
-autoseccomp-gen trace-run "/bin/ls /" -o ls.json
+autoseccomp-gen-gen trace-run "/bin/ls /" -o ls.json
 # try to ping with that profile → blocked
 docker run --rm --security-opt seccomp=ls.json busybox ping -c1 8.8.8.8
 
