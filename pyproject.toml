@@ -17,7 +17,7 @@ Homepage = "https://github.com/<your-user>/autoseccomp-gen"
 Issues = "https://github.com/<your-user>/autoseccomp-gen/issues"
 
 [project.scripts]
-autoseccomp-gen = "autoseccomp.cli:main"
+autoseccomp-gen = "autoseccomp.entry:main"
 
 [tool.setuptools.packages.find]
 where = ["."]

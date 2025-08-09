@@ -7,3 +7,7 @@ __pycache__/
 dist/
 build/
 *.egg-info/
+
+# Local helper files
+README.bak.*.md
+README.gallery.md
