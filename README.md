@@ -27,28 +27,7 @@ docker run --rm --security-opt seccomp=ls.json busybox true
 
 
 ```bash
-pip install -r requirements.txt
-# list the network‑free syscalls of /bin/ls
-autoseccomp-gen trace-run "/bin/ls /" -o ls.json
-# try to ping with that profile → blocked
-docker run --rm --security-opt seccomp=ls.json busybox ping -c1 8.8.8.8
 
-CLI
-Sub‑command	Description
-trace <log>	Show unique syscalls from an existing strace -f file.
-generate <log> -o profile.json	Build a seccomp profile from that trace.
-trace-run "<cmd>" -o profile.json	All‑in‑one: trace, generate, validate.
-
-How it works
-Runs your command under strace -f.
-
-Merges the detected syscalls with a minimal Docker baseline (no networking).
-
-Writes seccomp.json and re‑runs the command inside BusyBox to prove it works.
-
-
-
-```
 ## Screenshots
 
 > A few real runs that show how AutoSeccomp‑Gen works end-to-end.
