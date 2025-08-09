@@ -29,7 +29,7 @@ docker run --rm --security-opt seccomp=ls.json busybox true
 ```bash
 pip install -r requirements.txt
 # list the network‑free syscalls of /bin/ls
-autoseccomp-gen-gen trace-run "/bin/ls /" -o ls.json
+autoseccomp-gen trace-run "/bin/ls /" -o ls.json
 # try to ping with that profile → blocked
 docker run --rm --security-opt seccomp=ls.json busybox ping -c1 8.8.8.8
 
