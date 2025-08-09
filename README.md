@@ -36,6 +36,7 @@ Writes seccomp.json and re‑runs the command inside BusyBox to prove it works.
 
 
 
+```
 ## Screenshots
 
 > A few real runs that show how AutoSeccomp‑Gen works end-to-end.
